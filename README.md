@@ -40,7 +40,7 @@ Git Bashを使用するのも良いと思いますが、<br>
 TortoiseGit、Sourcetree等のGUIもあるので、自分にあったものを使いましょう！
 <br><br>
 
-### **2.1 Docker Install**
+### **2.2 Docker Install**
 
 DockerはMacOS、Linux、Window Pro、Window Home等でインストール方法が異ります<br>
 今回は、ターゲット層が多そうなWindow Homeのインストール方法を取り上げます<br>
