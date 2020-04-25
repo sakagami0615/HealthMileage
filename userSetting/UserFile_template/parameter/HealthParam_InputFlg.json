@@ -1,0 +1,58 @@
+{
+	"Monday":{
+		"SleepInput"   : 1,
+		"StepInput"    : 1,
+		"SleepCheck"   : 1,
+		"AlcoholCheck" : 1,
+		"DietCheck"    : 1,
+		"DietplusCheck": 1
+	},
+	"Tuesday":{
+		"SleepInput"   : 1,
+		"StepInput"    : 1,
+		"SleepCheck"   : 1,
+		"AlcoholCheck" : 1,
+		"DietCheck"    : 1,
+		"DietplusCheck": 1
+	},
+	"Wednesday":{
+		"SleepInput"   : 1,
+		"StepInput"    : 1,
+		"SleepCheck"   : 1,
+		"AlcoholCheck" : 1,
+		"DietCheck"    : 1,
+		"DietplusCheck": 1
+	},
+	"Thursday":{
+		"SleepInput"   : 1,
+		"StepInput"    : 1,
+		"SleepCheck"   : 1,
+		"AlcoholCheck" : 1,
+		"DietCheck"    : 1,
+		"DietplusCheck": 1
+	},
+	"Friday":{
+		"SleepInput"   : 1,
+		"StepInput"    : 1,
+		"SleepCheck"   : 1,
+		"AlcoholCheck" : 1,
+		"DietCheck"    : 1,
+		"DietplusCheck": 1
+	},
+	"Saturday":{
+		"SleepInput"   : 1,
+		"StepInput"    : 1,
+		"SleepCheck"   : 1,
+		"AlcoholCheck" : 1,
+		"DietCheck"    : 1,
+		"DietplusCheck": 1
+	},
+	"Sunday":{
+		"SleepInput"   : 1,
+		"StepInput"    : 1,
+		"SleepCheck"   : 1,
+		"AlcoholCheck" : 1,
+		"DietCheck"    : 1,
+		"DietplusCheck": 1
+	}
+}

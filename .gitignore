@@ -1,0 +1,14 @@
+__pycache__/
+
+*.log
+*.png
+
+api/.vscode/
+
+api/data/NextHeadMailDate.json
+userSetting/UserFile/profile/GMailProfile.json
+userSetting/UserFile/profile/HealthProfile.json
+userSetting/UserFile/parameter/HealthParam_InputFlg.json
+userSetting/UserFile/parameter/HealthParam_SleepValueInfo.json
+userSetting/UserFile/parameter/HealthParam_StepValueInfo.json
+
