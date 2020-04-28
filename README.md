@@ -165,8 +165,10 @@ https://support.google.com/accounts/answer/6010255?p=less-secure-apps&hl=ja&visi
 実行手順は下記の通りです
 + Docker Quickstart Terminalを実行する
 
-+ bat/dockerフォルダの**docker_start.bat**を実行する<br>
-　このバッチファイルを実行することで、dockerのコンテナが起動します
++ bat/dockerフォルダの**docker_run.bat**を実行する<br>
+　このバッチファイルを実行することで、dockerのコンテナを作成して起動します<br><br>
+　※2回目以降であれば、**docker_start.bat**を実行します<br>
+　　このバッチファイルでは既にあるコンテナを起動します
 
 + bat/runフォルダのXXXX.batを実行する<br>
 　下記batファイルの内、目的にあったものを使用してください
@@ -178,7 +180,10 @@ https://support.google.com/accounts/answer/6010255?p=less-secure-apps&hl=ja&visi
 	+ **run_record.bat**:自動入力を実行する<br>
 	　ユーザパラメータに応じて自動入力を実施します
 	+ **run_resident.bat**:本アプリを常駐起動する<br>
-	　メールで「入力状況の確認」および「自動入力」の命令が出せるようになります
+	　メールにて本アプリに命令が出せるようになります<br>
+	　ユーザパラメータで指定したGMailに下記件名のメールを送信することで命令が出せます<br>
+	　- **confirm**：現在の入力状況を確認し、確認内容をメールで返信します<br>
+	　- **record**：ユーザパラメータに応じて自動入力を実施します<br>
 
 
 ## **5. その他**
@@ -289,6 +294,7 @@ HealthMileage
     ├─bat
     │  ├─docker
     │  │      docker_clear.bat
+    │  │      docker_run.bat
     │  │      docker_start.bat
     │  │      docker_stop.bat
     │  │

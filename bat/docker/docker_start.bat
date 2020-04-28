@@ -1,6 +1,8 @@
 @echo off
 
 cd ..
-docker-compose up --build
+docker start python_selenium
+
+docker ps -a
 
 pause()
