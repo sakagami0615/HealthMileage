@@ -221,6 +221,7 @@ bat/dockerフォルダの**docker_stop.bat**を実行することでアプリを
 		+ *test_selenium.bat*： webスクレイピング機能確認
 		+ *test_send_mail.bat*： メール送信機能確認
 <br><br>
+
 ## **8. 不具合/疑問点があった際**
 
 下記URLにアクセスし、issueを確認し、類似質問がないかを確認してください<br>
@@ -244,7 +245,7 @@ https://github.com/sakagami0615/HealthMileage/issues<br>
 	　・**README.md**のどの章、節なのかを記載する<br><br>
 
 
-## **8. 備考**
+## **9. 備考**
 フォルダツリーは下記の通りです
 
 ```
