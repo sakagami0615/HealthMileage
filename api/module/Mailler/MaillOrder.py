@@ -22,7 +22,9 @@ import smtplib
 import imaplib
 import ssl
 from email.utils import formatdate
+from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
+from email.mime.image import MIMEImage
 
 from module.Mailler.MaillParam import Param as MAILPARAM
 
@@ -82,22 +84,53 @@ class MaillOrder:
 	
 	# ----------------------------------------------------------------------------------------------------
 	# メール送信
+	# ※img_path：list
 	# ----------------------------------------------------------------------------------------------------
-	def SendMail(self, to, subject, body):
+	def SendMail(self, to, subject, body, img_paths=None):
 
-		# ----------------------------------------
-		# メッセージ作成
-		# ----------------------------------------
-		msg = MIMEText(body)
-		msg['Subject'] = subject
-		msg['From'] = self.__profile['Adress']
-		msg['To'] = to
-		msg['Date'] = formatdate()
+		# Create the root message and fill in the from, to, and subject headers
+		msg_root = MIMEMultipart('related')
+		msg_root['Subject'] = subject
+		msg_root['From'] = self.__profile['Adress']
+		msg_root['To'] = to
+		msg_root.preamble = 'This is a multi-part message in MIME format.'
 
+		# Encapsulate the plain and HTML versions of the message body in an
+		# 'alternative' part, so message agents can decide which they want to display.
+		msg_alternative = MIMEMultipart('alternative')
+		msg_root.attach(msg_alternative)
+
+		#msg_text = MIMEText(body)
+		#msg_alternative.attach(msg_text)
+		
+		if img_paths == None:
+			body_html = body.replace('\n', '<br>')
+			img_src = '<p>{}</p>'.format(body_html)
+			msg_text = MIMEText(img_src, 'html')
+			msg_alternative.attach(msg_text)
+
+		else:
+			# We reference the image in the IMG SRC attribute by the ID we give it below		
+			body_html = body.replace('\n', '<br>')
+			img_src = '<p>{}</p>'.format(body_html)
+			for idx in range(len(img_paths)):
+				img_src += '<img src="cid:image{}"><br>'.format(idx)
+			msg_text = MIMEText(img_src, 'html')
+			msg_alternative.attach(msg_text)
+
+			for (idx, img_path) in enumerate(img_paths):
+				# This example assumes the image is in the current directory
+				fp = open(img_path, 'rb')
+				msg_image = MIMEImage(fp.read())
+				fp.close()
+				# Define the image's ID as referenced above
+				msg_image.add_header('Content-ID', '<image{}>'.format(idx))
+				msg_root.attach(msg_image)
+	
 		# ----------------------------------------
 		# メッセージ送信
 		# ----------------------------------------
 		smtpobj = smtplib.SMTP_SSL('smtp.gmail.com', 465, timeout=10)
 		smtpobj.login(self.__profile['Adress'], self.__profile['Password'])
-		smtpobj.sendmail(self.__profile['Adress'], msg['To'], msg.as_string())
+		smtpobj.sendmail(self.__profile['Adress'], msg_root['To'], msg_root.as_string())
 		smtpobj.close()

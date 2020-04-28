@@ -13,4 +13,5 @@ class Param:
 	# ----------------------------------------------------------------------------------------------------
 	ODER_TYPE_RECORD  = 'record'
 	ODER_TYPE_CONFIRM = 'confirm'
-	ORDER_TYPES = [ODER_TYPE_RECORD, ODER_TYPE_CONFIRM]
+	ODER_TYPE_PARAM = 'param'
+	ORDER_TYPES = [ODER_TYPE_RECORD, ODER_TYPE_CONFIRM, ODER_TYPE_PARAM]

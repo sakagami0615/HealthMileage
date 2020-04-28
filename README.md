@@ -182,8 +182,9 @@ https://support.google.com/accounts/answer/6010255?p=less-secure-apps&hl=ja&visi
 	+ **run_resident.bat**:本アプリを常駐起動する<br>
 	　メールにて本アプリに命令が出せるようになります<br>
 	　ユーザパラメータで指定したGMailに下記件名のメールを送信することで命令が出せます<br>
-	　- **confirm**：現在の入力状況を確認し、確認内容をメールで返信します<br>
+	　- **confirm**：現在の入力状況を確認し、確認内容をメールで送信します<br>
 	　- **record**：ユーザパラメータに応じて自動入力を実施します<br>
+	　- **param**：パラメータ描画画像を作成し、画像をメールで送信します<br>
 
 
 ## **5. その他**

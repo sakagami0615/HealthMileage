@@ -23,10 +23,12 @@ import dateutil.parser
 
 from module.Health.HealthRunRecord import HealthRunRecord
 from module.Health.HealthRunConfirm import HealthRunConfirm
+from module.Health.HealthRunParam import HealthRunParam
 from module.Mailler import MailUtility
 
 from module.Request.RequestParam import Param as REQPARAM
 from module.Mailler.MaillParam import Param as MAILPARAM
+from module.Main.MainParam import Param as MAINPARAM
 
 
 # ----------------------------------------------------------------------------------------------------
@@ -39,6 +41,7 @@ class Request:
 		self.__maill_order = maill_order
 		self.__record = HealthRunRecord()
 		self.__confirm = HealthRunConfirm()
+		self.__param = HealthRunParam()
 
 	# ----------------------------------------------------------------------------------------------------
 	# 未出の命令開始地点日時を保存しているファイルの取得
@@ -79,18 +82,27 @@ class Request:
 					print(' - Process [{}]'.format(REQPARAM.ODER_TYPE_RECORD))
 					(is_success, ack_msg) = self.__record.RunRecord()
 					ack = MailUtility.OrganizeAckinfo(req_info['Subject'], is_success, ack_msg)
+					img_paths = None
 				
 				# 通知処理
 				elif req_info['Subject'] == REQPARAM.ODER_TYPE_CONFIRM:
 					print(' - Process [{}]'.format(REQPARAM.ODER_TYPE_CONFIRM))
 					(is_success, ack_msg) = self.__confirm.RunConfirm()
 					ack = MailUtility.OrganizeAckinfo(req_info['Subject'], is_success, ack_msg)
+					img_paths = None
+				
+				# パラメータ確認処理
+				elif req_info['Subject'] == REQPARAM.ODER_TYPE_PARAM:
+					print(' - Process [{}]'.format(REQPARAM.ODER_TYPE_PARAM))
+					(is_success, ack_msg) = self.__param.RunParam()
+					ack = MailUtility.OrganizeAckinfo(req_info['Subject'], is_success, ack_msg)
+					img_paths = MAINPARAM.PARAM_IMG_PATHS
 				
 				# 命令以外の場合、無視
 				else:
 					continue
 
-				self.__maill_order.SendMail(req_info['From'], ack['Subject'], ack['Msg'])
+				self.__maill_order.SendMail(req_info['From'], ack['Subject'], ack['Msg'], img_paths)
 
 			# 予期せぬエラー等を通知する処理
 			except Exception:
