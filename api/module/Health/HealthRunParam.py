@@ -209,7 +209,7 @@ class HealthRunParam:
 		is_success = True
 		ack_message = 'Send Parammeter Plot Images'
 		for (idx, img_path) in enumerate(MAINPARAM.PARAM_IMG_PATHS):
-			message = '・No.{} : {}'.format(idx, img_path)
+			message = '・No.{} : {}'.format(idx + 1, img_path)
 			ack_message = '{}\n{}'.format(ack_message, message)
 
 		return (is_success, ack_message)

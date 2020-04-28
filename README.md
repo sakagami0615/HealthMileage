@@ -10,7 +10,7 @@
 ※ 上記2点は、GMailを通じて実施することもできます
 <br><br>
 
-## **1. 注意事項**
+## **2. 注意事項**
 
 今回の大まかなファイル構成は下記の通りです
 - **api**: 本アプリのソースコード配置フォルダ
@@ -21,7 +21,16 @@
 apiフォルダ内は必要がなければ内部を弄らないでください
 <br><br>
 
-## **2. 事前準備**
+## **3. 開発/実行環境**
+
+- OS：Windows 10 Home
+- Git：2.21.0.windows.1
+- Docker：18.03.0-ce
+
+※Unix系のOSでは動作しない可能性があります
+<br><br>
+
+## **4. 事前準備**
 
 今回のソースを実行するために、下記ツールが必要になります
 - Git
@@ -30,7 +39,7 @@ apiフォルダ内は必要がなければ内部を弄らないでください
 ※ Git、Dockerが無くても使えると思いますが、あった方が圧倒的に楽です
 <br><br>
 
-### **2.1 Git Install**
+### **4.1 Git Install**
 
 インストール方法は下記URLに記載してあります<br>
 [ダウンロード]～[インストール方法]の手順を実施すればOKです<br>
@@ -40,7 +49,7 @@ Git Bashを使用するのも良いと思いますが、<br>
 TortoiseGit、Sourcetree等のGUIもあるので、自分にあったものを使いましょう！
 <br><br>
 
-### **2.2 Docker Install**
+### **4.2 Docker Install**
 
 DockerはMacOS、Linux、Window Pro、Window Home等でインストール方法が異ります<br>
 今回は、ターゲット層が多そうなWindow Homeのインストール方法を取り上げます<br>
@@ -51,7 +60,7 @@ DockerはMacOS、Linux、Window Pro、Window Home等でインストール方法�
 https://qiita.com/KIYS/items/8ac37f6757a6b7f84569
 <br><br>
 
-## **3. 導入手順**
+## **5. 導入手順**
 
 導入手順は下記の通りです
 + GitでHealthMileageリポジトリをクローンする
@@ -59,7 +68,7 @@ https://qiita.com/KIYS/items/8ac37f6757a6b7f84569
 + Googleアカウントの設定で「安全性の低いアプリのアクセス」を有効にする
 <br><br>
 
-### **3.1 GitでHealthMileageリポジトリをクローン**
+### **5.1 GitでHealthMileageリポジトリをクローン**
 
 下記リポジトリをクローンする<br>
 https://github.com/sakagami0615/HealthMileage
@@ -68,7 +77,7 @@ https://github.com/sakagami0615/HealthMileage
 <br><br>
 
 
-### **3.2 ユーザパラメータファイルを記載**
+### **5.2 ユーザパラメータファイルを記載**
 
 UserFile_templateフォルダにフォーマットがあるので<br>
 記載した後、UserFileにファイルをコピーしてください
@@ -152,7 +161,7 @@ UserFile_templateフォルダにフォーマットがあるので<br>
 	※パラメータは「GMailProfile.json」同様
 <br>
 
-### **3.3 Googleアカウントで「安全性の低いアプリのアクセス」の設定**
+### **5.3 Googleアカウントで「安全性の低いアプリのアクセス」の設定**
 
 3.2節の「GMailProfile.json」で指定したアカウントの設定で、<br>
 「安全性の低いアプリのアクセス」を有効にする<br>
@@ -160,7 +169,7 @@ UserFile_templateフォルダにフォーマットがあるので<br>
 https://support.google.com/accounts/answer/6010255?p=less-secure-apps&hl=ja&visit_id=637234281504299747-1908005239&rd=1<br><br>
 
 
-## **4. アプリ実行方法**
+## **6. アプリ実行方法**
 
 実行手順は下記の通りです
 + Docker Quickstart Terminalを実行する
@@ -187,7 +196,7 @@ https://support.google.com/accounts/answer/6010255?p=less-secure-apps&hl=ja&visi
 	　- **param**：パラメータ描画画像を作成し、画像をメールで送信します<br>
 
 
-## **5. その他**
+## **7. その他**
 
 + アプリを終了する際<br>
 bat/dockerフォルダの**docker_stop.bat**を実行することでアプリを終了することができます<br>
@@ -235,104 +244,105 @@ https://github.com/sakagami0615/HealthMileage/issues<br>
 	　・**README.md**のどの章、節なのかを記載する<br><br>
 
 
-## **7. 備考**
+## **8. 備考**
 フォルダツリーは下記の通りです
 
 ```
 HealthMileage
-    │  .gitignore
-    │  docker-compose.yml
-    │  Dockerfile
-    │  README.md
-    │  requirements.txt
+│  .gitignore
+│  docker-compose.yml
+│  Dockerfile
+│  README.md
+│  requirements.txt
+│
+├─api
+│  │  draw_param.py
+│  │  run_confirm.py
+│  │  run_record.py
+│  │  run_resident.py
+│  │
+│  ├─data
+│  │      ※処理内で生成されたファイル保存場所
+│  │
+│  ├─module
+│  │  ├─Health
+│  │  │      HealthDriver.py
+│  │  │      HealthParam.py
+│  │  │      HealthRunConfirm.py
+│  │  │      HealthRunParam.py
+│  │  │      HealthRunRecord.py
+│  │  │      HealthUtility.py
+│  │  │      HealthXPath.py
+│  │  │
+│  │  ├─Mailler
+│  │  │      MaillExtractor.py
+│  │  │      MaillOrder.py
+│  │  │      MaillParam.py
+│  │  │      MailUtility.py
+│  │  │
+│  │  ├─Main
+│  │  │      confirm.py
+│  │  │      MainParam.py
+│  │  │      MainUtility.py
+│  │  │      record.py
+│  │  │      resident.py
+│  │  │
+│  │  ├─Request
+│  │  │      Request.py
+│  │  │      RequestParam.py
+│  │  │
+│  │  └─Scheduler
+│  │          Scheduler.py
+│  │
+│  └─test
+│          TestConfirm.py
+│          TestHelloworld.py
+│          TestMailRecv.py
+│          TestMailSend.py
+│          TestRecord.py
+│          TestSelenium.py
+│
+├─bat
+│  ├─docker
+│  │      docker_clear.bat
+│  │      docker_run.bat
+│  │      docker_start.bat
+│  │      docker_stop.bat
+│  │
+│  ├─run
+│  │      draw_param.bat
+│  │      run_confirm.bat
+│  │      run_record.bat
+│  │      run_resident.bat
+│  │
+│  └─test
+│          check_container.bat
+│          check_version_chromedriver-binary.bat
+│          check_version_google-chrome-stable.bat
+│          check_version_python.bat
+│          test_helloworld.bat
+│          test_recv_mail.bat
+│          test_selenium.bat
+│          test_send_mail.bat
+│
+├─log
+│      ※処理内で生成されたファイル保存場所
+│
+└─userSetting
+    ├─UserFile
+    │  ├─parameter
+    │  │      ※ここに記入したjsonファイルを配置する
+    │  │
+    │  └─profile
+    │          ※ここに記入したjsonファイルを配置する
     │
-    ├─api
-    │  │  draw_param.py
-    │  │  run_confirm.py
-    │  │  run_record.py
-    │  │  run_resident.py
-    │  │
-    │  ├─data
-    │  │      ※処理内で生成されたファイル保存場所
-    │  │
-    │  ├─module
-    │  │  ├─Health
-    │  │  │      HealthDriver.py
-    │  │  │      HealthParam.py
-    │  │  │      HealthRunConfirm.py
-    │  │  │      HealthRunRecord.py
-    │  │  │      HealthUtility.py
-    │  │  │      HealthXPath.py
-    │  │  │
-    │  │  ├─Mailler
-    │  │  │      MaillExtractor.py
-    │  │  │      MaillOrder.py
-    │  │  │      MaillParam.py
-    │  │  │      MailUtility.py
-    │  │  │
-    │  │  ├─Main
-    │  │  │      confirm.py
-    │  │  │      MainParam.py
-    │  │  │      MainUtility.py
-    │  │  │      record.py
-    │  │  │      resident.py
-    │  │  │
-    │  │  ├─Request
-    │  │  │      Request.py
-    │  │  │      RequestParam.py
-    │  │  │
-    │  │  └─Scheduler
-    │  │          Scheduler.py
-    │  │
-    │  └─test
-    │          TestConfirm.py
-    │          TestHelloworld.py
-    │          TestMailRecv.py
-    │          TestMailSend.py
-    │          TestRecord.py
-    │          TestSelenium.py
-    │
-    ├─bat
-    │  ├─docker
-    │  │      docker_clear.bat
-    │  │      docker_run.bat
-    │  │      docker_start.bat
-    │  │      docker_stop.bat
-    │  │
-    │  ├─run
-    │  │      draw_param.bat
-    │  │      run_confirm.bat
-    │  │      run_record.bat
-    │  │      run_resident.bat
-    │  │
-    │  └─test
-    │          check_container.bat
-    │          check_version_chromedriver-binary.bat
-    │          check_version_google-chrome-stable.bat
-    │          check_version_python.bat
-    │          test_helloworld.bat
-    │          test_recv_mail.bat
-    │          test_selenium.bat
-    │          test_send_mail.bat
-    │
-    ├─log
-    │      ※処理内で生成されたファイル保存場所
-    │
-    └─userSetting
-        ├─UserFile
-        │  ├─parameter
-        │  │      ※ここに記入したjsonファイルを配置する
-        │  │
-        │  └─profile
-        │          ※ここに記入したjsonファイルを配置する
+    └─UserFile_template
+        ├─parameter
+        │      HealthParam_InputFlg.json
+        │      HealthParam_SleepValueInfo.json
+        │      HealthParam_StepValueInfo.json
         │
-        └─UserFile_template
-            ├─parameter
-            │      HealthParam_InputFlg.json
-            │      HealthParam_SleepValueInfo.json
-            │      HealthParam_StepValueInfo.json
-            │
-            └─profile
-                    GMailProfile.json
-                    HealthProfile.json
+        └─profile
+                GMailProfile.json
+                HealthProfile.json
 ```
