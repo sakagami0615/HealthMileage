@@ -11,26 +11,26 @@ from linebot.models import (
 )
 
 try:
-	from private import channel
+	from app.private import channel
 except:
 	pass
 
 try:
-	from private import userparam
+	from app.private import userparam
 except:
 	pass
 
 try:
-	from master import masterprocess
+	from app.master import masterprocess
 except:
 	pass
 
 
 import datetime
-from version import version
-from src.HealthMileage import HealthMileage
-from src import LinePushMessage
-from src import ErrorLog
+from app.version import version
+from app.src.HealthMileage import HealthMileage
+from app.src import LinePushMessage
+from app.src import ErrorLog
 
 app = Flask(__name__)
 

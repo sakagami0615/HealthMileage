@@ -1,6 +1,6 @@
 import os, sys
 if os.path.basename(os.getcwd()) == 'test':
-	os.chdir('../../')
+	os.chdir('../../../')
 	sys.path.append('HealthMileageBot')
 elif os.path.basename(os.getcwd()) == 'HealthMileageBot':
 	os.chdir('../')
@@ -9,9 +9,9 @@ else:
 	exit()
 
 
-from private import userparam
-from src.ParseInputMessage import ParseInputMessage
-from src import ErrorLog
+from app.private import userparam
+from app.src.ParseInputMessage import ParseInputMessage
+from app.src import ErrorLog
 
 
 def TEST_ParseInputMessage(event_msg):

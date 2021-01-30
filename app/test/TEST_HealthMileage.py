@@ -1,6 +1,6 @@
 import os, sys
 if os.path.basename(os.getcwd()) == 'test':
-	os.chdir('../../')
+	os.chdir('../../../')
 	sys.path.append('HealthMileageBot')
 elif os.path.basename(os.getcwd()) == 'HealthMileageBot':
 	os.chdir('../')
@@ -9,10 +9,10 @@ else:
 	exit()
 
 
-from private import userparam
-from src.HealthMileage import HealthMileage
-from src import LinePushMessage
-from src import ErrorLog
+from app.private import userparam
+from app.src.HealthMileage import HealthMileage
+from app.src import LinePushMessage
+from app.src import ErrorLog
 
 
 def TEST_HealthMileage(event_msg):

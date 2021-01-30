@@ -1,6 +1,6 @@
 import os, sys
 if os.path.basename(os.getcwd()) == 'test':
-	os.chdir('../../')
+	os.chdir('../../../')
 	sys.path.append('HealthMileageBot')
 elif os.path.basename(os.getcwd()) == 'HealthMileageBot':
 	os.chdir('../')
@@ -9,7 +9,7 @@ else:
 	exit()
 
 
-from src.WebDriver import WebDriver
+from app.src.WebDriver import WebDriver
 
 
 def TEST_WebDriver():

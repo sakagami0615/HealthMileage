@@ -1,7 +1,7 @@
-from src.WebDriver import WebDriver
-from src import ErrorLog
-from src.Parameter import PARAM
-from src.Parameter import XPATH
+from app.src.WebDriver import WebDriver
+from app.src import ErrorLog
+from app.src.Parameter import PARAM
+from app.src.Parameter import XPATH
 
 
 class HealthLogin:

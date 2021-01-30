@@ -1,4 +1,4 @@
-from src import ErrorLog
+from app.src import ErrorLog
 
 
 class ParseInputMessage:

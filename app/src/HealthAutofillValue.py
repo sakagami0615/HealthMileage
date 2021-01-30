@@ -1,8 +1,8 @@
 from datetime import datetime
 from selenium.webdriver.support.ui import Select
-from src import ErrorLog
-from src import Parameter as PARAM
-from src.Parameter import XPATH
+from app.src import ErrorLog
+from app.src import Parameter as PARAM
+from app.src.Parameter import XPATH
 
 
 class HealthAutofillValue:

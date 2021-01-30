@@ -1,11 +1,11 @@
-from src.HealthAutofillValue import HealthAutofillValue
-from src.HealthAutofillCheck import HealthAutofillCheck
-from src.DataGenerator import DataGenerator
-from src.RandomGenerator import RandomGenerator
-from src import LinePushMessage
-from src import ErrorLog
-from src.Parameter import PARAM
-from src.Parameter import XPATH
+from app.src.HealthAutofillValue import HealthAutofillValue
+from app.src.HealthAutofillCheck import HealthAutofillCheck
+from app.src.DataGenerator import DataGenerator
+from app.src.RandomGenerator import RandomGenerator
+from app.src import LinePushMessage
+from app.src import ErrorLog
+from app.src.Parameter import PARAM
+from app.src.Parameter import XPATH
 
 
 class HealthAutofill:
