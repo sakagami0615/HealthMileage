@@ -16,7 +16,7 @@ def TEST_WebDriver():
 	
 	URL = 'https://pepup.life/users/sign_in'
 
-	web_driver = WebDriver(is_hidden=False)
+	web_driver = WebDriver(is_hidden=True)
 
 	try:
 		web_driver.driver.get(URL)

@@ -23,7 +23,7 @@ def TEST_HealthMileage(event_msg):
 	ErrorLog.error_log_object = ErrorLog.ErrorLog()
 	
 	health_mileage = HealthMileage()
-	result_flg, result_msg = health_mileage.Run(event_msg, is_hidden=False)
+	result_flg, result_msg = health_mileage.Run(event_msg, is_hidden=True)
 
 	return result_msg
 
