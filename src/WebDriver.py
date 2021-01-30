@@ -23,7 +23,6 @@ class WebDriver:
 			chrome_options.add_argument('--headless')
 			chrome_options.add_argument('--no-sandbox')
 			chrome_options.add_argument('--disable-dev-shm-usage')
-			
 		else:
 			chrome_options = Options()
 		
@@ -36,11 +35,6 @@ class WebDriver:
 		
 		self.driver = webdriver.Chrome(chrome_options=chrome_options)
 		self.__wait_sec = wait_sec
-
-
-	def __del__(self):
-
-		self.driver.quit()
 	
 	
 	def Sleep(self):
